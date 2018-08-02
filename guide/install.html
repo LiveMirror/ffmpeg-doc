@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>安装教程 | 云转码express-ffmpeg</title>
+    <meta name="description" content="基于nodejs开发的简单转码切片管理平台">
+    
+    
+    <link rel="preload" href="/assets/css/3.styles.49cd2042.css" as="style"><link rel="preload" href="/assets/js/app.ff7d4791.js" as="script"><link rel="preload" href="/assets/js/0.5e25f11b.js" as="script"><link rel="prefetch" href="/assets/js/1.e4ee1de0.js"><link rel="prefetch" href="/assets/js/2.9e8e5bfc.js">
+    <link rel="stylesheet" href="/assets/css/3.styles.49cd2042.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      云转码express-ffmpeg
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">文档</a></div><div class="nav-item"><a href="https://gitee.com/quazero/express-ffmpeg" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">文档</a></div><div class="nav-item"><a href="https://gitee.com/quazero/express-ffmpeg" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>文档</span><!----></p><ul class="sidebar-group-items"><li><a href="/guide/" class="sidebar-link">介绍</a></li><li><a href="/guide/install.html" class="active sidebar-link">安装教程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/install.html#安装ffmpeg" class="sidebar-link">安装ffmpeg</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#安装nvm及nodejs" class="sidebar-link">安装nvm及nodejs</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#安装expressjs" class="sidebar-link">安装expressjs</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#安装mongodb" class="sidebar-link">安装mongodb</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#安装-nginx-及反向代理配置" class="sidebar-link">安装 nginx 及反向代理配置</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#克隆云转码源码并配置" class="sidebar-link">克隆云转码源码并配置</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#安装pm2并运行源码" class="sidebar-link">安装pm2并运行源码</a></li><li class="sidebar-sub-header"><a href="/guide/install.html#设置环境为发行环境" class="sidebar-link">设置环境为发行环境</a></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="安装教程"><a href="#安装教程" aria-hidden="true" class="header-anchor">#</a> 安装教程</h1><p>express-ffmpeg云转码依赖于服务器环境，需要安装nodejs、mongodb、ffmpeg及nginx等，所以本教程力图尽量详尽的列出安装步骤。</p><div class="warning custom-block"><p class="custom-block-title">WARNING</p><p>注意：下面的教程以Ubuntu16.04系统为例，其他系统步骤相同，安装方法不同而已。</p></div><h2 id="安装ffmpeg"><a href="#安装ffmpeg" aria-hidden="true" class="header-anchor">#</a> 安装ffmpeg</h2><p>Ubuntu16.04安装ffmpeg十分方便</p><div class="language- extra-class"><pre class="language-text"><code>sudo add-apt-repository ppa:djcj/hybrid
+sudo apt-get update  
+sudo apt-get install ffmpeg 
+</code></pre></div><p>安装之后，命令行运行ffmpeg即可查看效果。</p><h2 id="安装nvm及nodejs"><a href="#安装nvm及nodejs" aria-hidden="true" class="header-anchor">#</a> 安装nvm及nodejs</h2><p>假如是root账号登陆，系统为ubuntu16.04。</p><div class="language- extra-class"><pre class="language-text"><code>cd ~
+mkdir git
+git clone https://github.com/cnpm/nvm.git
+source /root/git/nvm/nvm.sh
+</code></pre></div><p>配置终端启动时自动执行source /root/git/nvm/nvm.sh，在 ~/.bashrc、 ~/.bash_profile、~/.profile 或者 ~/.zshrc 文件添加以下命令:</p><div class="language- extra-class"><pre class="language-text"><code>source /root/git/nvm/nvm.sh​
+</code></pre></div><p>然后重新打开终端，输入nvm。</p><div class="language- extra-class"><pre class="language-text"><code>$ nvm
+ 
+Node Version Manager
+ 
+Usage:
+    nvm help                    Show this message
+    nvm --version               Print out the latest released version of nvm
+    nvm install [-s]   Download and install a , [-s] from source
+    nvm uninstall      Uninstall a version
+    nvm use            Modify PATH to use 
+    nvm run  []  Run  with  as arguments
+    nvm current                 Display currently activated version
+    nvm ls                      List installed versions
+    nvm ls             List versions matching a given description
+    nvm ls-remote               List remote versions available for install
+    nvm deactivate              Undo effects of NVM on current shell
+    nvm alias []       Show all aliases beginning with 
+    nvm alias    Set an alias named  pointing to 
+    nvm unalias           Deletes the alias named 
+    nvm copy-packages  Install global NPM packages contained in  to current version
+ 
+Example:
+    nvm install v0.10.24        Install a specific version number
+    nvm use 0.10                Use the latest available 0.10.x release
+    nvm run 0.10.24 myApp.js    Run myApp.js using node v0.10.24
+    nvm alias default 0.10.24   Set default node version on a shell
+ 
+Note:
+    to remove, delete or uninstall nvm - just remove ~/.nvm, ~/.npm and ~/.bower folders
+</code></pre></div><p>如若显示类似内容，则nvm安装成功。</p><p>查看最近nodejs稳定版本号，前往<a href="https://nodejs.org/en/" target="_blank" rel="noopener noreferrer">nodejs官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，查看稳定版本号。截止此教程发布，最新的稳定版本为8.11.3，于是我们安装这个版本：</p><div class="language- extra-class"><pre class="language-text"><code>nvm install 8.11.3
+</code></pre></div><p>最后设置默认版本</p><div class="language- extra-class"><pre class="language-text"><code>nvm alias default v8.11.3
+</code></pre></div><p>这样每次重启，都会自动切换到nodejs v8.11.3版本。</p><h2 id="安装expressjs"><a href="#安装expressjs" aria-hidden="true" class="header-anchor">#</a> 安装expressjs</h2><p>express-ffmpeg云转码自豪利用expressjs进行开发，我们进行全局安装即可。</p><div class="language- extra-class"><pre class="language-text"><code>npm install express -gd
+</code></pre></div><h2 id="安装mongodb"><a href="#安装mongodb" aria-hidden="true" class="header-anchor">#</a> 安装mongodb</h2><p>我们以最新的4.0版本为例。</p><h3 id="导入pulickey"><a href="#导入pulickey" aria-hidden="true" class="header-anchor">#</a> 导入pulickey</h3><div class="language- extra-class"><pre class="language-text"><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+</code></pre></div><h3 id="创建列表文件"><a href="#创建列表文件" aria-hidden="true" class="header-anchor">#</a> 创建列表文件</h3><div class="language- extra-class"><pre class="language-text"><code>echo &quot;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+</code></pre></div><h3 id="更新apt包数据库"><a href="#更新apt包数据库" aria-hidden="true" class="header-anchor">#</a> 更新apt包数据库</h3><div class="language- extra-class"><pre class="language-text"><code>sudo apt-get update
+</code></pre></div><h3 id="apt安装mongodb包"><a href="#apt安装mongodb包" aria-hidden="true" class="header-anchor">#</a> apt安装mongodb包</h3><div class="language- extra-class"><pre class="language-text"><code>sudo apt-get install -y mongodb-org
+</code></pre></div><h3 id="mongodb数据库配置"><a href="#mongodb数据库配置" aria-hidden="true" class="header-anchor">#</a> mongodb数据库配置</h3><p>进入根目录创建data文件夹，在data中再创建db文件夹和log文件夹。</p><div class="language- extra-class"><pre class="language-text"><code>cd /
+mkdir data
+cd data
+mkdir db
+mkdir log
+</code></pre></div><p>然后利用命令行运行mongodb</p><div class="language- extra-class"><pre class="language-text"><code>mongod --dbpath /data/db --fork --logpath /data/log/mongodb.log
+</code></pre></div><p>进入mongo命令行工具增加用户</p><div class="language- extra-class"><pre class="language-text"><code>mongo
+use admin
+use ffmpeg
+db.createUser({user:&quot;ffmpeg&quot;,pwd:&quot;ffmpeg&quot;,roles:[{role:&quot;readWrite&quot;,db:&quot;ffmpeg&quot;}]})
+db.auth(&quot;ffmpeg&quot;,&quot;ffmpeg&quot;)
+</code></pre></div><p>如果显示1则增加用户正确。</p><p>关闭mongodb服务</p><div class="language- extra-class"><pre class="language-text"><code>ps -ef | grep mongo
+mongo    18288     1  0 06:12 ?        00:00:00 mongod -f /database/mongodb/data/mongodb_27017.conf
+kill 18288
+</code></pre></div><p>最后用命令行重启mongodb服务</p><div class="language- extra-class"><pre class="language-text"><code>mongod -auth --bind_ip 127.0.0.1 --port 27017 --dbpath /data/db --fork --logpath /data/log/mongodb.log
+</code></pre></div><p>当然你也可以把这个写进mongodb的配置文件，然后利用配置文件启动mongodb。</p><h2 id="安装-nginx-及反向代理配置"><a href="#安装-nginx-及反向代理配置" aria-hidden="true" class="header-anchor">#</a> 安装 nginx 及反向代理配置</h2><div class="language- extra-class"><pre class="language-text"><code>sudo -s
+nginx=stable # use nginx=development for latest development version
+add-apt-repository ppa:nginx/$nginx
+apt-get update
+apt-get install nginx
+</code></pre></div><p>安装之后，我们需要配置nginx，进入/etc/nginx，我们需要关注的主要是两个文件夹，sites-available和sites-enabled，这两个文件夹里边的文件内容完全相同，这是因为site-available中的文件建立了符号链接到sites-enabled中文件，相当于快捷方式。我们开始设置我们自己的站点。</p><div class="warning custom-block"><p class="custom-block-title">WARNING</p><p>符号链接(symbolic links): 克服硬链接的局限性, 类似于快捷方式, 使用与硬链接相同.
+如果先删除文件, 则会成为坏链接(broken), ls会以不同颜色(Ubuntu, 红色)显示
+操作: ln -s item link, 可以link文件和目录</p></div><div class="language- extra-class"><pre class="language-text"><code>cd /etc/nginx/sites-available
+cp default yourdomain.com
+ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/yourdomain.com
+</code></pre></div><p>开始配置yourdomain.com设置反向代理</p><div class="language- extra-class"><pre class="language-text"><code>server {  
+  server_name yourdomain.com;
+  listen 80;
+ 
+  location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-NginX-Proxy true;
+    proxy_pass http://127.0.0.1:3000;
+    proxy_redirect off;
+  }
+}
+</code></pre></div><p>最后重启nginx服务</p><div class="language- extra-class"><pre class="language-text"><code>/etc/init.d/nginx restart
+</code></pre></div><h2 id="克隆云转码源码并配置"><a href="#克隆云转码源码并配置" aria-hidden="true" class="header-anchor">#</a> 克隆云转码源码并配置</h2><p>环境装完了，现在开始安装云转码应用。
+假设将云转码安装在根目录/www中，如若没有此文件夹，请先创建。</p><div class="language- extra-class"><pre class="language-text"><code>cd /www
+git clone https://gitee.com/quazero/express-ffmpeg
+cd express-ffmpeg
+</code></pre></div><p>创建config文件夹，创建auth.js配置文件</p><div class="language- extra-class"><pre class="language-text"><code>mkdir config
+cd config
+touch auth.js
+</code></pre></div><p>进行auth.js的配置</p><div class="language- extra-class"><pre class="language-text"><code>module.exports = {
+    user: &quot;admin&quot;,
+    password: &quot;admin&quot;,
+    db: &quot;ffmpeg&quot;,
+    dbuser: &quot;ffmpeg&quot;,
+    dbpassword: &quot;ffmpeg&quot;
+};
+</code></pre></div><p>从上往下依次是登陆云转码平台的账号，密码，数据库，数据库用户名，数据库密码。本教程安装的mongodb数据库为ffmpeg，用户名和密码都是ffmpeg，可以自行进行修改。</p><h2 id="安装pm2并运行源码"><a href="#安装pm2并运行源码" aria-hidden="true" class="header-anchor">#</a> 安装pm2并运行源码</h2><div class="language- extra-class"><pre class="language-text"><code>cd /www/express-ffmpeg
+npm install
+npm install -g pm2
+pm2 start bin/www -i 0
+</code></pre></div><p>pm2是极其推崇的运行nodejs应用的工具，-i 0的意思是以集群方式按照cpu线程数自动开启多线程运行，大幅提高运行效率。</p><h2 id="设置环境为发行环境"><a href="#设置环境为发行环境" aria-hidden="true" class="header-anchor">#</a> 设置环境为发行环境</h2><p>最后设置node运行环境为发行环境，并且重启服务，设置成发行环境会让应用速度更上一个台阶，并且不再显示错误信息。</p><div class="language- extra-class"><pre class="language-text"><code>export NODE_ENV=production
+pm2 reload all --update-env
+</code></pre></div></div><div class="page-edit"><!----><!----></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/guide/" class="prev router-link-active">
+          介绍
+        </a></span><!----></p></div></div></div></div>
+    <script src="/assets/js/0.5e25f11b.js" defer></script><script src="/assets/js/app.ff7d4791.js" defer></script>
+  </body>
+</html>
